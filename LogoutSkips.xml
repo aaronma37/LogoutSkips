@@ -1,0 +1,22 @@
+<Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+    <Button name="LogoutSkips_Toggle" parent="WorldMapFrame" inherits="UIPanelButtonTemplate" text="Hide LogoutSkips">
+        <Size>
+            <AbsDimension x="140" y="20"/>
+        </Size>
+        <Anchors>
+            <Anchor point="LEFT" relativePoint="RIGHT" relativeTo="WorldMapZoomOutButton">
+                <Offset>
+                    <AbsDimension x="-50" y="-38"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Scripts>
+            <OnLoad>
+                self:SetFrameLevel(10);
+            </OnLoad>
+            <OnClick>
+		LogoutSkips_Toggle_Click()
+            </OnClick>
+        </Scripts>
+    </Button>
+</Ui>
