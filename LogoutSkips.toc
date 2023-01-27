@@ -1,7 +1,7 @@
 ## Interface: 30400
 ## Title: LogoutSkips
 ## Notes: Draws a line extending from the player arrow on the world map
-## Author: Yazpad, Semlar for original MapLines implementation, Tactics and TommySalami for logout skip discoveries and research 
+## Author: Yazpad, Zarant, Semlar for original MapLines implementation, Tactics and TommySalami for logout skip discoveries and research 
 ## Version: 0.0.2
 ## SavedVariablesPerCharacter: locs2, locs_kalimdor2, settings
 
