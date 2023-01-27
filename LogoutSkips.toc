@@ -2,8 +2,12 @@
 ## Title: LogoutSkips
 ## Notes: Draws a line extending from the player arrow on the world map
 ## Author: Yazpad, Semlar for original MapLines implementation, Tactics and TommySalami for logout skip discoveries and research 
-## Version: 0.0.1
+## Version: 0.0.2
 ## SavedVariablesPerCharacter: locs2, locs_kalimdor2, settings
 
+Data/eastern_kingdom_partitions.lua
+Data/eastern_kingdom_locs.lua
+Data/kalimdor_partitions.lua
+Data/kalimdor_locs.lua
 LogoutSkips.xml
 LogoutSkips.lua

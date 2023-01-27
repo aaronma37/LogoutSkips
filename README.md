@@ -1,6 +1,7 @@
 # LogoutSkips
 
 ## Acknowledgements
+- Zarant: Logout skip locations
 - Tactics and TommySalami: Logout skips discoveries and research; consulting
 - Semlar: Original library for drawing lines on map
 

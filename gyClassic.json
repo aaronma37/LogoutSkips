@@ -1,0 +1,621 @@
+{
+  "0": [
+    {
+      "x": -3655.885,
+      "y": 1978.46851,
+      "title": "Eastern Plaguelands, Graveyard CG Tower"
+    },
+    {
+      "x": -1374.05,
+      "y": -9552.46,
+      "title": "Elwynn Forest, Eastvale Logging Camp"
+    },
+    {
+      "x": 221.761,
+      "y": 1780.11,
+      "title": "Tirisfal Glades, Ruins of Lordaeron"
+    },
+    {
+      "x": -874.664,
+      "y": -5165.52,
+      "title": "Dun Morogh, Gates of Ironforge"
+    },
+    {
+      "x": -4374,
+      "y": -291,
+      "title": "The Hinterlands, The Overlook Cliffs"
+    },
+    {
+      "x": -1113.51,
+      "y": -6450.61,
+      "title": "Searing Gorge, Thorium Point"
+    },
+    {
+      "x": -3701,
+      "y": 1392,
+      "title": "Eastern Plaguelands, Darrowshire"
+    },
+    {
+      "x": -2132.62,
+      "y": -7490.45,
+      "title": "Burning Steppes, Flame Crest"
+    },
+    {
+      "x": -669.789856,
+      "y": 1750.34351,
+      "title": "Western Plaguelands, Bulwark"
+    },
+    {
+      "x": -5287.337,
+      "y": 2116.78979,
+      "title": "Eastern Plaguelands, Light\\'s Hope Chapel"
+    },
+    {
+      "x": -1520.28613,
+      "y": 908.3233,
+      "title": "Western Plaguelands, Chillwind Camp"
+    },
+    {
+      "x": -856.713,
+      "y": -3347.72,
+      "title": "Wetlands, Baradin Bay"
+    },
+    {
+      "x": -543.39,
+      "y": 2604.52,
+      "title": "Tirisfal Glades, Faol\\'s Rest"
+    },
+    {
+      "x": -228.6365,
+      "y": -11542.56,
+      "title": "Stranglethorn Vale, Northern Stranglethorn"
+    },
+    {
+      "x": -2949.48779,
+      "y": -10846.5742,
+      "title": "Blasted Lands, Dreadmaul Hold"
+    },
+    {
+      "x": -2227.1958,
+      "y": 323.512634,
+      "title": "The Hinterlands, Aerie Peak"
+    },
+    {
+      "x": 492.027,
+      "y": 2348.67,
+      "title": "Tirisfal Glades, Brill"
+    },
+    {
+      "x": -592.501953,
+      "y": -732.7994,
+      "title": "Hillsbrad Foothills, Southshore"
+    },
+    {
+      "x": 288.447174,
+      "y": -14284.9619,
+      "title": "Stranglethorn Vale, Booty Bay"
+    },
+    {
+      "x": -3377.20313,
+      "y": -10567.8135,
+      "title": "Swamp of Sorrows, Stonard"
+    },
+    {
+      "x": 410.944,
+      "y": -9151.98,
+      "title": "Elwynn Forest, Stormwind"
+    },
+    {
+      "x": 171.408447,
+      "y": -9339.456,
+      "title": "Elwynn Forest, Goldshire"
+    },
+    {
+      "x": -188.646271,
+      "y": -8935.325,
+      "title": "Elwynn Forest, Northshire"
+    },
+    {
+      "x": -2037.692,
+      "y": -9403.245,
+      "title": "Redridge Mountains, Lakeshire"
+    },
+    {
+      "x": -2287.19,
+      "y": -6805,
+      "title": "Badlands, Kargath"
+    },
+    {
+      "x": -809.697,
+      "y": -5049.45,
+      "title": "Dun Morogh, Ironforge"
+    },
+    {
+      "x": -518.9205,
+      "y": -5680.04443,
+      "title": "Dun Morogh, Kharanos"
+    },
+    {
+      "x": 336.321136,
+      "y": -6164.226,
+      "title": "Dun Morogh, Anvilmar"
+    },
+    {
+      "x": -2617.95874,
+      "y": -1472.28943,
+      "title": "Arathi Highlands"
+    },
+    {
+      "x": -981.171448,
+      "y": -18.677681,
+      "title": "Hillsbrad Foothills, Tarren Mill"
+    },
+    {
+      "x": 1589.80664,
+      "y": 516.194336,
+      "title": "Silverpine Forest, The Sepulcher"
+    },
+    {
+      "x": 214.674,
+      "y": 1822.61,
+      "title": "Tirisfal Glades, Undercity"
+    },
+    {
+      "x": 1629.11,
+      "y": 1882.94,
+      "title": "Tirisfal Glades, Deathknell"
+    },
+    {
+      "x": -1833.24072,
+      "y": -11110.377,
+      "title": "Deadwind Pass, Morgan\\'s Plot"
+    },
+    {
+      "x": -3493.108,
+      "y": -6289.911,
+      "title": "Badlands, Graveyard NE "
+    },
+    {
+      "x": -2435.99121,
+      "y": -3289.12378,
+      "title": "Wetlands, Crossroads"
+    },
+    {
+      "x": -2881.58228,
+      "y": -5351.229,
+      "title": "Loch Modan, Thelsamar"
+    },
+    {
+      "x": -515,
+      "y": -5687,
+      "title": "Dun Morogh"
+    },
+    {
+      "x": 1197.24,
+      "y": -10546.9,
+      "title": "Westfall, Sentinel Hill"
+    },
+    {
+      "x": -1189.67188,
+      "y": -10774.2627,
+      "title": "Duskwood, Darkshire"
+    },
+    {
+      "x": -2305,
+      "y": -9271,
+      "title": "Redridge Mountains"
+    },
+    {
+      "x": 423,
+      "y": -9115,
+      "title": "Stormwind"
+    },
+    {
+      "x": 294.048,
+      "y": -10606.8,
+      "title": "Duskwood, Ravenhill"
+    },
+    {
+      "x": -4014.39,
+      "y": 2647.55,
+      "title": "Eastern Plaguelands, Blackwood Lake"
+    },
+    {
+      "x": -2531.75,
+      "y": -1215.59,
+      "title": "Arathi Basin - Alliance Exit"
+    },
+    {
+      "x": -3518.52,
+      "y": -831.881,
+      "title": "Arathi Basin - Horde Exit"
+    },
+    {
+      "x": -2411.99,
+      "y": 1236.89,
+      "title": "Western Plaguelands, Caer Darrow"
+    },
+    {
+      "x": -1085.72,
+      "y": 536.495,
+      "title": "Alterac Valley, Horde Exit"
+    },
+    {
+      "x": -184.934,
+      "y": 101.144,
+      "title": "Alterac Valley, Alliance Exit"
+    },
+    {
+      "x": 16278.5732,
+      "y": 16223.8232,
+      "title": "Programmer Isle"
+    }
+  ],
+  "1": [
+    {
+      "x": 1557.804,
+      "y": -7991.57373,
+      "title": "Silithus, Scarab Wall (AQ Only)"
+    },
+    {
+      "x": -74.6465,
+      "y": -981.917,
+      "title": "Mulgore, Thunder Bluff"
+    },
+    {
+      "x": -4464.24,
+      "y": 1177.78,
+      "title": "Durotar, Northern Durotar"
+    },
+    {
+      "x": -4985,
+      "y": -778,
+      "title": "Durotar, Sen\\'jin Village"
+    },
+    {
+      "x": -1217.75,
+      "y": 5935.47,
+      "title": "Felwood, Irontree Woods"
+    },
+    {
+      "x": -2809,
+      "y": 7426,
+      "title": "Moonglade"
+    },
+    {
+      "x": -3046.94,
+      "y": -3127.69,
+      "title": "Dustwallow Marsh, Brackenwall Village"
+    },
+    {
+      "x": -6845,
+      "y": 4788.78,
+      "title": "Azshara, Legash Encampment"
+    },
+    {
+      "x": -6037.13,
+      "y": 2942.76,
+      "title": "Azshara, Southridge Beach"
+    },
+    {
+      "x": 16268.9395,
+      "y": 16310.3252,
+      "title": "GM Island"
+    },
+    {
+      "x": -2953.619,
+      "y": 2421.72363,
+      "title": "Ashenvale, Kargathia"
+    },
+    {
+      "x": -4661.54,
+      "y": 6875.76,
+      "title": "Winterspring, Everlook"
+    },
+    {
+      "x": 96.95573,
+      "y": 4291.28271,
+      "title": "Darkshore, Twilight Vale"
+    },
+    {
+      "x": -2436.67432,
+      "y": -7205.565,
+      "title": "Un\\'Goro Crater, The Marshlands"
+    },
+    {
+      "x": -1600.29138,
+      "y": 3806.53955,
+      "title": "Felwood, Morlos\\'Aran"
+    },
+    {
+      "x": 434.53,
+      "y": 898.261,
+      "title": "Stonetalon Mountains, Webwinder Path"
+    },
+    {
+      "x": -4009.754,
+      "y": 2681.05786,
+      "title": "Azshara, Talrendis Point"
+    },
+    {
+      "x": -3459.28,
+      "y": -5530.28271,
+      "title": "Thousand Needles, Shimmering Flats"
+    },
+    {
+      "x": 370.153442,
+      "y": -4439.967,
+      "title": "Feralas, Camp Mojache"
+    },
+    {
+      "x": 3229.43433,
+      "y": -4596.4043,
+      "title": "Feralas, Feathermoon Stronghold"
+    },
+    {
+      "x": -3478.68,
+      "y": -1081.4,
+      "title": "The Barrens, Ratchet"
+    },
+    {
+      "x": -1972.64,
+      "y": -2517.75,
+      "title": "The Barrens, Camp Taurajo"
+    },
+    {
+      "x": -3944.65234,
+      "y": -7190.949,
+      "title": "Tanaris, Gadgetzan"
+    },
+    {
+      "x": -4315.455,
+      "y": -3525.706,
+      "title": "Dustwallow Marsh, Theramore Isle"
+    },
+    {
+      "x": 965,
+      "y": 8706,
+      "title": "Teldrassil, Rut\\'theran Village"
+    },
+    {
+      "x": 811.5312,
+      "y": 10384.81,
+      "title": "Teldrassil, Aldrassil"
+    },
+    {
+      "x": -629.735168,
+      "y": 2633.41113,
+      "title": "Ashenvale, Astranaar"
+    },
+    {
+      "x": 945.6204,
+      "y": 9701.255,
+      "title": "Teldrassil, Dolanaar"
+    },
+    {
+      "x": 2117.12,
+      "y": 10054.3,
+      "title": "Teldrassil, Darnassus"
+    },
+    {
+      "x": -342.026917,
+      "y": -2175.1897,
+      "title": "Mulgore, Bloodhoof Village"
+    },
+    {
+      "x": -278.2921,
+      "y": -6432.25635,
+      "title": "Silithus, Valor\\'s Rest"
+    },
+    {
+      "x": -1765,
+      "y": -4656,
+      "title": "Thousand Needles, The Great Lift"
+    },
+    {
+      "x": 209.9926,
+      "y": 6739.19,
+      "title": "Darkshore, Auberdine"
+    },
+    {
+      "x": -153.215027,
+      "y": -2944.5564,
+      "title": "Mulgore, Red Cloud Mesa"
+    },
+    {
+      "x": -4412.01,
+      "y": 1357.1,
+      "title": "Durotar, Orgrimmar"
+    },
+    {
+      "x": -4793.73,
+      "y": 233.458,
+      "title": "Durotar, Razor Hill"
+    },
+    {
+      "x": 1973.36963,
+      "y": -1443.488,
+      "title": "Desolace, Ghost Walker Post"
+    },
+    {
+      "x": -2523.49243,
+      "y": -592.60144,
+      "title": "The Barrens, The Crossroads"
+    },
+    {
+      "x": 891.4373,
+      "y": -6831.31738,
+      "title": "Silithus, Cenarion Hold"
+    },
+    {
+      "x": 1632.08069,
+      "y": -4590.40869,
+      "title": "Feralas, Dire Maul"
+    },
+    {
+      "x": -1858.67,
+      "y": 1459.17,
+      "title": "Warsong Gulch - Alliance Exit Loc"
+    },
+    {
+      "x": -2104.28,
+      "y": 1035.27,
+      "title": "Warsong Gulch - Horde Exit Loc"
+    },
+    {
+      "x": -4296.03369,
+      "y": -634.6349,
+      "title": "Durotar, Valley of Trials"
+    }
+  ],
+  "30": [
+    {
+      "x": 44,
+      "y": 643,
+      "title": "Alterac Valley, Stormpike Aid Station (A-base)"
+    },
+    {
+      "x": -253.30867,
+      "y": -1090.47681,
+      "title": "Alterac Valley, Frostwolf Graveyard (Lo)"
+    },
+    {
+      "x": -374,
+      "y": 676,
+      "title": "Alterac Valley, Stormpike Graveyard (Hi)"
+    },
+    {
+      "x": -491.28363,
+      "y": 873.0018,
+      "title": "Alterac Valley, Alliance Safe"
+    },
+    {
+      "x": -619.2549,
+      "y": -818.556641,
+      "title": "Alterac Valley, Horde Safe"
+    },
+    {
+      "x": 31.2062721,
+      "y": -157.4092,
+      "title": "Alterac Valley, Snowfall Graveyard (Mid)"
+    },
+    {
+      "x": -333.3384,
+      "y": -1496.06506,
+      "title": "Alterac Valley, Frostwolf Relief Hut (H-base)"
+    },
+    {
+      "x": -405.231384,
+      "y": -531.217834,
+      "title": "Alterac Valley, PvP Horde Choke Graveyard (H-choke)"
+    },
+    {
+      "x": -496.4331,
+      "y": 73.4177551,
+      "title": "Alterac Valley, PvP Alliance Choke Graveyard (A-choke)"
+    }
+  ],
+  "37": [
+    {
+      "x": -1027.863,
+      "y": -448.1886,
+      "title": "Plains of Snow - Alliance Start"
+    },
+    {
+      "x": -485.309021,
+      "y": -661.528442,
+      "title": "Plains of Snow - Horde Start"
+    }
+  ],
+  "451": [
+    {
+      "x": 16577.4551,
+      "y": 16619.52,
+      "title": "Programmer Isle, Bucklers Cemetery 3"
+    },
+    {
+      "x": 16268.9395,
+      "y": 16310.3252,
+      "title": "Programmer Isle"
+    },
+    {
+      "x": 16622.7012,
+      "y": 16620.74,
+      "title": "Programmer Isle, Bucklers Cemetery 1"
+    },
+    {
+      "x": 16662.9785,
+      "y": 16614.81,
+      "title": "Programmer Isle, Bucklers Cemetery 2"
+    }
+  ],
+  "489": [
+    {
+      "x": 1387.49,
+      "y": 1029.14,
+      "title": "Warsong Gulch - Horde Rez Loc"
+    },
+    {
+      "x": 1554.79,
+      "y": 1415.33,
+      "title": "Warsong Gulch - Alliance Rez Loc"
+    },
+    {
+      "x": 1433.724,
+      "y": 933.3315,
+      "title": "Warsong Gulch - Horde Enter Loc"
+    },
+    {
+      "x": 1481.86841,
+      "y": 1519.53027,
+      "title": "Warsong Gulch - Alliance Enter Loc"
+    }
+  ],
+  "529": [
+    {
+      "x": 1213.11377,
+      "y": 772.7557,
+      "title": "Arathi Basin - Graveyard, ALT-S (Lumber Mill)"
+    },
+    {
+      "x": 781.556946,
+      "y": 1211.52368,
+      "title": "Arathi Basin - Graveyard, ALT-N (Gold Mine)"
+    },
+    {
+      "x": 1163.13062,
+      "y": 1201.86951,
+      "title": "Arathi Basin - Graveyard, A-Mid (Stables)"
+    },
+    {
+      "x": 955.1847,
+      "y": 1016.58832,
+      "title": "Arathi Basin - Graveyard, Mid (Blacksmith)"
+    },
+    {
+      "x": 784.9787,
+      "y": 834.7264,
+      "title": "Arathi Basin - Graveyard, H-Mid (Farm)"
+    },
+    {
+      "x": 638.364,
+      "y": 713.71,
+      "title": "Arathi Basin - Graveyard, H-Base (Defiler\\'s Den)"
+    },
+    {
+      "x": 1270.27,
+      "y": 1354.7,
+      "title": "Arathi Basin - Graveyard, A-Base (Trollbane Hall)"
+    },
+    {
+      "x": 1310.74,
+      "y": 1313.9,
+      "title": "Arathi Basin - Alliance Entrance"
+    },
+    {
+      "x": 681.22,
+      "y": 684.014,
+      "title": "Arathi Basin - Horde Entrance"
+    }
+  ]
+}
