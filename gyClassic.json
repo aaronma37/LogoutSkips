@@ -3,101 +3,121 @@
     {
       "x": -3655.885,
       "y": 1978.46851,
+      "graveyard": 1,
       "title": "Eastern Plaguelands, Graveyard CG Tower"
     },
     {
       "x": -1374.05,
       "y": -9552.46,
+      "graveyard": 1,
       "title": "Elwynn Forest, Eastvale Logging Camp"
     },
     {
       "x": 221.761,
       "y": 1780.11,
+      "graveyard": 1,
       "title": "Tirisfal Glades, Ruins of Lordaeron"
     },
     {
       "x": -874.664,
       "y": -5165.52,
+      "graveyard": 1,
       "title": "Dun Morogh, Gates of Ironforge"
     },
     {
       "x": -4374,
       "y": -291,
+      "graveyard": 1,
       "title": "The Hinterlands, The Overlook Cliffs"
     },
     {
       "x": -1113.51,
       "y": -6450.61,
+      "graveyard": 1,
       "title": "Searing Gorge, Thorium Point"
     },
     {
       "x": -3701,
       "y": 1392,
+      "graveyard": 1,
       "title": "Eastern Plaguelands, Darrowshire"
     },
     {
       "x": -2132.62,
       "y": -7490.45,
+      "graveyard": 1,
       "title": "Burning Steppes, Flame Crest"
     },
     {
       "x": -669.789856,
       "y": 1750.34351,
+      "graveyard": 1,
       "title": "Western Plaguelands, Bulwark"
     },
     {
       "x": -5287.337,
       "y": 2116.78979,
+      "graveyard": 1,
       "title": "Eastern Plaguelands, Light\\'s Hope Chapel"
     },
     {
       "x": -1520.28613,
       "y": 908.3233,
+      "graveyard": 1,
       "title": "Western Plaguelands, Chillwind Camp"
     },
     {
       "x": -856.713,
       "y": -3347.72,
+      "graveyard": 1,
       "title": "Wetlands, Baradin Bay"
     },
     {
       "x": -543.39,
       "y": 2604.52,
+      "graveyard": 1,
       "title": "Tirisfal Glades, Faol\\'s Rest"
     },
     {
       "x": -228.6365,
       "y": -11542.56,
+      "graveyard": 1,
       "title": "Stranglethorn Vale, Northern Stranglethorn"
     },
     {
       "x": -2949.48779,
       "y": -10846.5742,
+      "graveyard": 1,
       "title": "Blasted Lands, Dreadmaul Hold"
     },
     {
       "x": -2227.1958,
       "y": 323.512634,
+      "graveyard": 1,
       "title": "The Hinterlands, Aerie Peak"
     },
     {
       "x": 492.027,
       "y": 2348.67,
+      "graveyard": 1,
       "title": "Tirisfal Glades, Brill"
     },
     {
       "x": -592.501953,
       "y": -732.7994,
+      "graveyard": 1,
       "title": "Hillsbrad Foothills, Southshore"
     },
     {
       "x": 288.447174,
       "y": -14284.9619,
+      "graveyard": 1,
       "title": "Stranglethorn Vale, Booty Bay"
     },
     {
       "x": -3377.20313,
       "y": -10567.8135,
+      "graveyard": 1,
       "title": "Swamp of Sorrows, Stonard"
     },
     {
@@ -108,21 +128,25 @@
     {
       "x": 171.408447,
       "y": -9339.456,
+      "graveyard": 1,
       "title": "Elwynn Forest, Goldshire"
     },
     {
       "x": -188.646271,
       "y": -8935.325,
+      "graveyard": 1,
       "title": "Elwynn Forest, Northshire"
     },
     {
       "x": -2037.692,
       "y": -9403.245,
+      "graveyard": 1,
       "title": "Redridge Mountains, Lakeshire"
     },
     {
       "x": -2287.19,
       "y": -6805,
+      "graveyard": 1,
       "title": "Badlands, Kargath"
     },
     {
@@ -133,26 +157,31 @@
     {
       "x": -518.9205,
       "y": -5680.04443,
+      "graveyard": 1,
       "title": "Dun Morogh, Kharanos"
     },
     {
       "x": 336.321136,
       "y": -6164.226,
+      "graveyard": 1,
       "title": "Dun Morogh, Anvilmar"
     },
     {
       "x": -2617.95874,
       "y": -1472.28943,
+      "graveyard": 1,
       "title": "Arathi Highlands"
     },
     {
       "x": -981.171448,
       "y": -18.677681,
+      "graveyard": 1,
       "title": "Hillsbrad Foothills, Tarren Mill"
     },
     {
       "x": 1589.80664,
       "y": 516.194336,
+      "graveyard": 1,
       "title": "Silverpine Forest, The Sepulcher"
     },
     {
@@ -163,26 +192,31 @@
     {
       "x": 1629.11,
       "y": 1882.94,
+      "graveyard": 1,
       "title": "Tirisfal Glades, Deathknell"
     },
     {
       "x": -1833.24072,
       "y": -11110.377,
+      "graveyard": 1,
       "title": "Deadwind Pass, Morgan\\'s Plot"
     },
     {
       "x": -3493.108,
       "y": -6289.911,
+      "graveyard": 1,
       "title": "Badlands, Graveyard NE "
     },
     {
       "x": -2435.99121,
       "y": -3289.12378,
+      "graveyard": 1,
       "title": "Wetlands, Crossroads"
     },
     {
       "x": -2881.58228,
       "y": -5351.229,
+      "graveyard": 1,
       "title": "Loch Modan, Thelsamar"
     },
     {
@@ -193,11 +227,13 @@
     {
       "x": 1197.24,
       "y": -10546.9,
+      "graveyard": 1,
       "title": "Westfall, Sentinel Hill"
     },
     {
       "x": -1189.67188,
       "y": -10774.2627,
+      "graveyard": 1,
       "title": "Duskwood, Darkshire"
     },
     {
@@ -213,11 +249,13 @@
     {
       "x": 294.048,
       "y": -10606.8,
+      "graveyard": 1,
       "title": "Duskwood, Ravenhill"
     },
     {
       "x": -4014.39,
       "y": 2647.55,
+      "graveyard": 1,
       "title": "Eastern Plaguelands, Blackwood Lake"
     },
     {
@@ -233,6 +271,7 @@
     {
       "x": -2411.99,
       "y": 1236.89,
+      "graveyard": 1,
       "title": "Western Plaguelands, Caer Darrow"
     },
     {
@@ -255,6 +294,7 @@
     {
       "x": 1557.804,
       "y": -7991.57373,
+      "graveyard": 1,
       "title": "Silithus, Scarab Wall (AQ Only)"
     },
     {
@@ -265,36 +305,43 @@
     {
       "x": -4464.24,
       "y": 1177.78,
+      "graveyard": 1,
       "title": "Durotar, Northern Durotar"
     },
     {
       "x": -4985,
       "y": -778,
+      "graveyard": 1,
       "title": "Durotar, Sen\\'jin Village"
     },
     {
       "x": -1217.75,
       "y": 5935.47,
+      "graveyard": 1,
       "title": "Felwood, Irontree Woods"
     },
     {
       "x": -2809,
       "y": 7426,
+      "graveyard": 1,
       "title": "Moonglade"
     },
     {
       "x": -3046.94,
       "y": -3127.69,
+      "graveyard": 1,
       "title": "Dustwallow Marsh, Brackenwall Village"
     },
     {
       "x": -6845,
       "y": 4788.78,
+      "graveyard": 1,
       "title": "Azshara, Legash Encampment"
     },
     {
       "x": -6037.13,
       "y": 2942.76,
+      "graveyard": 1,
       "title": "Azshara, Southridge Beach"
     },
     {
@@ -305,71 +352,85 @@
     {
       "x": -2953.619,
       "y": 2421.72363,
+      "graveyard": 1,
       "title": "Ashenvale, Kargathia"
     },
     {
       "x": -4661.54,
       "y": 6875.76,
+      "graveyard": 1,
       "title": "Winterspring, Everlook"
     },
     {
       "x": 96.95573,
       "y": 4291.28271,
+      "graveyard": 1,
       "title": "Darkshore, Twilight Vale"
     },
     {
       "x": -2436.67432,
       "y": -7205.565,
+      "graveyard": 1,
       "title": "Un\\'Goro Crater, The Marshlands"
     },
     {
       "x": -1600.29138,
       "y": 3806.53955,
+      "graveyard": 1,
       "title": "Felwood, Morlos\\'Aran"
     },
     {
       "x": 434.53,
       "y": 898.261,
+      "graveyard": 1,
       "title": "Stonetalon Mountains, Webwinder Path"
     },
     {
       "x": -4009.754,
       "y": 2681.05786,
+      "graveyard": 1,
       "title": "Azshara, Talrendis Point"
     },
     {
       "x": -3459.28,
       "y": -5530.28271,
+      "graveyard": 1,
       "title": "Thousand Needles, Shimmering Flats"
     },
     {
       "x": 370.153442,
       "y": -4439.967,
+      "graveyard": 1,
       "title": "Feralas, Camp Mojache"
     },
     {
       "x": 3229.43433,
       "y": -4596.4043,
+      "graveyard": 1,
       "title": "Feralas, Feathermoon Stronghold"
     },
     {
       "x": -3478.68,
       "y": -1081.4,
+      "graveyard": 1,
       "title": "The Barrens, Ratchet"
     },
     {
       "x": -1972.64,
       "y": -2517.75,
+      "graveyard": 1,
       "title": "The Barrens, Camp Taurajo"
     },
     {
       "x": -3944.65234,
       "y": -7190.949,
+      "graveyard": 1,
       "title": "Tanaris, Gadgetzan"
     },
     {
       "x": -4315.455,
       "y": -3525.706,
+      "graveyard": 1,
       "title": "Dustwallow Marsh, Theramore Isle"
     },
     {
@@ -380,46 +441,55 @@
     {
       "x": 811.5312,
       "y": 10384.81,
+      "graveyard": 1,
       "title": "Teldrassil, Aldrassil"
     },
     {
       "x": -629.735168,
       "y": 2633.41113,
+      "graveyard": 1,
       "title": "Ashenvale, Astranaar"
     },
     {
       "x": 945.6204,
       "y": 9701.255,
+      "graveyard": 1,
       "title": "Teldrassil, Dolanaar"
     },
     {
       "x": 2117.12,
       "y": 10054.3,
+      "graveyard": 1,
       "title": "Teldrassil, Darnassus"
     },
     {
       "x": -342.026917,
       "y": -2175.1897,
+      "graveyard": 1,
       "title": "Mulgore, Bloodhoof Village"
     },
     {
       "x": -278.2921,
       "y": -6432.25635,
+      "graveyard": 1,
       "title": "Silithus, Valor\\'s Rest"
     },
     {
       "x": -1765,
       "y": -4656,
+      "graveyard": 1,
       "title": "Thousand Needles, The Great Lift"
     },
     {
       "x": 209.9926,
       "y": 6739.19,
+      "graveyard": 1,
       "title": "Darkshore, Auberdine"
     },
     {
       "x": -153.215027,
       "y": -2944.5564,
+      "graveyard": 1,
       "title": "Mulgore, Red Cloud Mesa"
     },
     {
@@ -430,26 +500,31 @@
     {
       "x": -4793.73,
       "y": 233.458,
+      "graveyard": 1,
       "title": "Durotar, Razor Hill"
     },
     {
       "x": 1973.36963,
       "y": -1443.488,
+      "graveyard": 1,
       "title": "Desolace, Ghost Walker Post"
     },
     {
       "x": -2523.49243,
       "y": -592.60144,
+      "graveyard": 1,
       "title": "The Barrens, The Crossroads"
     },
     {
       "x": 891.4373,
       "y": -6831.31738,
+      "graveyard": 1,
       "title": "Silithus, Cenarion Hold"
     },
     {
       "x": 1632.08069,
       "y": -4590.40869,
+      "graveyard": 1,
       "title": "Feralas, Dire Maul"
     },
     {
@@ -465,6 +540,7 @@
     {
       "x": -4296.03369,
       "y": -634.6349,
+      "graveyard": 1,
       "title": "Durotar, Valley of Trials"
     }
   ],

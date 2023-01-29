@@ -3,12 +3,16 @@ f:SetAllPoints()
 
 settings = {
   ['disabled'] = true,
+  ['gy_disabled'] = true,
 }
 
 local showing = false
+local gy_showing = false
 
 local voronoi_lines_kalimdor = kalimdor_partitions
 local voronoi_lines = eastern_kingdom_partitions
+local gy_voronoi_lines = eastern_kingdom_gy_partitions
+local gy_voronoi_lines_kalimdor = kalimdor_gy_partitions
 
 -- This is all for drawing a line on the map in zones that we're not currently in
 -- We could just draw our line outside of the scrollframe and rotate it, and to be honest that may even be a better approach
@@ -186,6 +190,27 @@ for i=1,#voronoi_lines do
 	table.insert(lines, Line)
 end
 
+gy_start_points = {}
+gy_end_points = {}
+gy_lines = {}
+
+for i=1,#gy_voronoi_lines do
+	local start_point = CreateFrame('frame', nil, LineFrame)
+	start_point:SetSize(1, 1)
+	table.insert(gy_start_points, start_point)
+	local end_point = CreateFrame('frame', nil, LineFrame)
+	end_point:SetSize(1, 1)
+	table.insert(gy_end_points, end_point)
+	local Line = LineFrame:CreateLine(nil, 'OVERLAY')
+	Line:Hide()
+	Line:SetTexture('interface/buttons/white8x8')
+	Line:SetVertexColor(0.0, 0.0, 0.0, 0.8)
+	Line:SetThickness(2)
+	Line:SetStartPoint('CENTER', start_point, 0, 0)
+	Line:SetEndPoint('CENTER', end_point, 0, 0)
+	table.insert(gy_lines, Line)
+end
+
 line_frames_kalimdor = {}
 start_points_kalimdor = {}
 end_points_kalimdor = {}
@@ -208,6 +233,27 @@ for i=1,#voronoi_lines_kalimdor do
 	table.insert(lines_kalimdor, Line)
 end
 
+gy_start_points_kalimdor = {}
+gy_end_points_kalimdor = {}
+gy_lines_kalimdor = {}
+
+for i=1,#gy_voronoi_lines_kalimdor do
+	local start_point = CreateFrame('frame', nil, LineFrame)
+	start_point:SetSize(1, 1)
+	table.insert(gy_start_points_kalimdor, start_point)
+	local end_point = CreateFrame('frame', nil, LineFrame)
+	end_point:SetSize(1, 1)
+	table.insert(gy_end_points_kalimdor, end_point)
+	local Line = LineFrame:CreateLine(nil, 'OVERLAY')
+	Line:Hide()
+	Line:SetTexture('interface/buttons/white8x8')
+	Line:SetVertexColor(0.0, 0.0, 0.0, 0.8)
+	Line:SetThickness(2)
+	Line:SetStartPoint('CENTER', start_point, 0, 0)
+	Line:SetEndPoint('CENTER', end_point, 0, 0)
+	table.insert(gy_lines_kalimdor, Line)
+end
+
 points_ = {}
 texs_ = {}
 
@@ -225,6 +271,24 @@ for _,v in ipairs(eastern_kingdom_locs) do
   table.insert(texs_, tex)
 end
 
+eastern_kingdom_gy_points_ = {}
+eastern_kingdom_gy_texs_ = {}
+
+for _,v in ipairs(eastern_kingdom_gy_locs) do
+  local p = CreateFrame('frame', nil, LineFrame)
+  p:SetHeight(40)
+  p:SetWidth(40)
+  local tex = p:CreateTexture(nil, 'OVERLAY')
+  tex:SetTexture("Interface\\Addons\\LogoutSkips\\Media\\icon_x.blp")
+  tex:SetDrawLayer("OVERLAY", 4)
+  tex:SetHeight(15)
+  tex:SetWidth(15)
+  tex:Hide()
+  tex:SetVertexColor(0,0,0,1)
+  table.insert(eastern_kingdom_gy_points_, p)
+  table.insert(eastern_kingdom_gy_texs_, tex)
+end
+
 points_kalimdor_ = {}
 texs_kalimdor_ = {}
 
@@ -240,6 +304,24 @@ for _,v in ipairs(kalimdor_locs) do
   tex:Hide()
   table.insert(points_kalimdor_, p)
   table.insert(texs_kalimdor_, tex)
+end
+
+kalimdor_gy_points_ = {}
+kalimdor_gy_texs_ = {}
+
+for _,v in ipairs(kalimdor_gy_locs) do
+  local p = CreateFrame('frame', nil, LineFrame)
+  p:SetHeight(40)
+  p:SetWidth(40)
+  local tex = p:CreateTexture(nil, 'OVERLAY')
+  tex:SetTexture("Interface\\Addons\\LogoutSkips\\Media\\icon_x.blp")
+  tex:SetDrawLayer("OVERLAY", 4)
+  tex:SetHeight(15)
+  tex:SetWidth(15)
+  tex:Hide()
+  tex:SetVertexColor(0,0,0,1)
+  table.insert(kalimdor_gy_points_, p)
+  table.insert(kalimdor_gy_texs_, tex)
 end
 
 local function update()
@@ -261,50 +343,113 @@ local function update()
 	  return 
 	end
 
-	if settings['disabled'] then return end
+	if settings['gy_disabled'] and gy_showing then
+	  for _,v in ipairs(gy_lines) do
+	      v:Hide()
+	  end
+	  for _,v in ipairs(gy_lines_kalimdor) do
+	      v:Hide()
+	  end
 
-	local currentMapID = WorldMapFrame:GetMapID()
-	local cont, _ = C_Map.GetWorldPosFromMapPos(currentMapID, {x = 0, y = 0})
-
-	if cont == 0 and currentMapID ~= 947 then 
-	  for i,v in ipairs(voronoi_lines) do
-		drawLine(v[1], v[2], v[3], v[4], lines[i], start_points[i], end_points[i])
+	  for i,v in ipairs(eastern_kingdom_gy_locs) do
+	    eastern_kingdom_gy_texs_[i]:Hide()
 	  end
-	  for _,v in ipairs(lines_kalimdor) do
-	      v:Hide()
+	  for i,v in ipairs(kalimdor_gy_locs) do
+	    kalimdor_gy_texs_[i]:Hide()
 	  end
-	elseif cont == 1 and currentMapID ~= 947 then
-	  for i,v in ipairs(voronoi_lines_kalimdor) do
-		drawLine(v[1], v[2], v[3], v[4], lines_kalimdor[i], start_points_kalimdor[i], end_points_kalimdor[i])
-	  end
-	  for _,v in ipairs(lines) do
-	      v:Hide()
-	  end
-	else
-	  for _,v in ipairs(lines) do
-	      v:Hide()
-	  end
-	  for _,v in ipairs(lines_kalimdor) do
-	      v:Hide()
-	  end
+	  gy_showing = false
+	  return 
 	end
 
-	for i,v in ipairs(eastern_kingdom_locs) do
-	  texs_[i]:Hide()
-	  if cont == 0 and currentMapID ~= 947 then
-		  drawIcon(v[2], v[1], texs_[i], 0)
-	  end
-	end
+	if settings['disabled'] == false then
+		local currentMapID = WorldMapFrame:GetMapID()
+		local cont, _ = C_Map.GetWorldPosFromMapPos(currentMapID, {x = 0, y = 0})
 
-	for i,v in ipairs(kalimdor_locs) do
-	  texs_kalimdor_[i]:Hide()
-	  if cont == 1 and currentMapID ~= 947 then
-		  drawIcon(v[2], v[1], texs_kalimdor_[i], 1)
-	  end
-	end
+		if cont == 0 and currentMapID ~= 947 then 
+		  for i,v in ipairs(voronoi_lines) do
+			drawLine(v[1], v[2], v[3], v[4], lines[i], start_points[i], end_points[i])
+		  end
+		  for _,v in ipairs(lines_kalimdor) do
+		      v:Hide()
+		  end
+		elseif cont == 1 and currentMapID ~= 947 then
+		  for i,v in ipairs(voronoi_lines_kalimdor) do
+			drawLine(v[1], v[2], v[3], v[4], lines_kalimdor[i], start_points_kalimdor[i], end_points_kalimdor[i])
+		  end
+		  for _,v in ipairs(lines) do
+		      v:Hide()
+		  end
+		else
+		  for _,v in ipairs(lines) do
+		      v:Hide()
+		  end
+		  for _,v in ipairs(lines_kalimdor) do
+		      v:Hide()
+		  end
+		end
 
-	WorldMapUpdated = false
-	showing = true
+		for i,v in ipairs(eastern_kingdom_locs) do
+		  texs_[i]:Hide()
+		  if cont == 0 and currentMapID ~= 947 then
+			  drawIcon(v[2], v[1], texs_[i], 0)
+		  end
+		end
+
+		for i,v in ipairs(kalimdor_locs) do
+		  texs_kalimdor_[i]:Hide()
+		  if cont == 1 and currentMapID ~= 947 then
+			  drawIcon(v[2], v[1], texs_kalimdor_[i], 1)
+		  end
+		end
+
+		WorldMapUpdated = false
+		showing = true
+      end
+
+      if settings['gy_disabled'] == false then
+	      local currentMapID = WorldMapFrame:GetMapID()
+	      local cont, _ = C_Map.GetWorldPosFromMapPos(currentMapID, {x = 0, y = 0})
+
+	      if cont == 0 and currentMapID ~= 947 then 
+		for i,v in ipairs(gy_voronoi_lines) do
+		      drawLine(v[1], v[2], v[3], v[4], gy_lines[i], gy_start_points[i], gy_end_points[i])
+		end
+		for _,v in ipairs(gy_lines_kalimdor) do
+		    v:Hide()
+		end
+	      elseif cont == 1 and currentMapID ~= 947 then
+		for i,v in ipairs(gy_voronoi_lines_kalimdor) do
+		      drawLine(v[1], v[2], v[3], v[4], gy_lines_kalimdor[i], gy_start_points_kalimdor[i], gy_end_points_kalimdor[i])
+		end
+		for _,v in ipairs(gy_lines) do
+		    v:Hide()
+		end
+	      else
+		for _,v in ipairs(gy_lines) do
+		    v:Hide()
+		end
+		for _,v in ipairs(gy_lines_kalimdor) do
+		    v:Hide()
+		end
+	      end
+
+	      for i,v in ipairs(eastern_kingdom_gy_locs) do
+		eastern_kingdom_gy_texs_[i]:Hide()
+		if cont == 0 and currentMapID ~= 947 then
+			drawIcon(v[2], v[1], eastern_kingdom_gy_texs_[i], 0)
+		end
+	      end
+
+	      for i,v in ipairs(kalimdor_gy_locs) do
+		kalimdor_gy_texs_[i]:Hide()
+		if cont == 1 and currentMapID ~= 947 then
+			drawIcon(v[2], v[1], kalimdor_gy_texs_[i], 1)
+		end
+	      end
+
+	      WorldMapUpdated = false
+	      gy_showing = true
+    end
 end
 
 
@@ -331,6 +476,16 @@ function LogoutSkips_Toggle_Click()
     LogoutSkips_Toggle:SetText("Show LogoutSkips")
   else
     LogoutSkips_Toggle:SetText("Hide LogoutSkips")
+  end
+  update()
+end
+
+function DeathSkips_Toggle_Click()
+  settings['gy_disabled'] = not settings['gy_disabled']
+  if settings['gy_disabled'] then
+    DeathSkips_Toggle:SetText("Show DeathSkips")
+  else
+    DeathSkips_Toggle:SetText("Hide DeathSkips")
   end
   update()
 end
