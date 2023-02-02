@@ -18,32 +18,46 @@ f.close()
 
 kalimdor_locs_set = set()
 kalimdor_gy_locs_set = set()
+kalimdor_locs = []
+kalimdor_gy_locs = []
+
 for v in gy_locs['1']:
-    kalimdor_locs_set.add((v['x'],v['y']))
+    if (v['x'], v['y']) not in kalimdor_locs_set:
+        kalimdor_locs_set.add((v['x'],v['y']))
+        kalimdor_locs.append((v['x'],v['y'], v['title']))
     if 'graveyard' in v and v['graveyard'] == 1:
-        kalimdor_gy_locs_set.add((v['x'], v['y']))
+        if (v['x'], v['y']) not in kalimdor_gy_locs_set:
+            kalimdor_gy_locs_set.add((v['x'], v['y']))
+            kalimdor_gy_locs.append((v['x'],v['y'], v['title']))
 
 eastern_kingdom_locs_set = set()
 eastern_kingdom_gy_locs_set = set()
+eastern_kingdom_locs = []
+eastern_kingdom_gy_locs = []
 for v in gy_locs['0']:
-    eastern_kingdom_locs_set.add((v['x'],v['y']))
+    if (v['x'], v['y']) not in eastern_kingdom_locs_set:
+        eastern_kingdom_locs_set.add((v['x'],v['y']))
+        eastern_kingdom_locs.append((v['x'],v['y'], v['title']))
     if 'graveyard' in v and v['graveyard'] == 1:
-        eastern_kingdom_gy_locs_set.add((v['x'], v['y']))
+        eastern_kingdom_gy_locs_set.add((v['x'], v['y'], v['title']))
+        if (v['x'], v['y']) not in eastern_kingdom_gy_locs_set:
+            eastern_kingdom_gy_locs_set.add((v['x'], v['y']))
+            eastern_kingdom_gy_locs.append((v['x'],v['y'], v['title']))
 
 f = open('instances.json')
 instance_locs = json.load(f)
 f.close()
 
 for v in instance_locs['1']:
-    kalimdor_locs_set.add((v['x'],v['y']))
+    if (v['x'], v['y']) not in kalimdor_locs_set:
+        kalimdor_locs_set.add((v['x'],v['y']))
+        kalimdor_locs.append((v['x'],v['y'], v['title']))
 
 for v in instance_locs['0']:
-    eastern_kingdom_locs_set.add((v['x'],v['y']))
+    if (v['x'], v['y']) not in eastern_kingdom_locs_set:
+        eastern_kingdom_locs_set.add((v['x'],v['y']))
+        eastern_kingdom_locs.append((v['x'],v['y'], v['title']))
 
-eastern_kingdom_locs = list(eastern_kingdom_locs_set)
-eastern_kingdom_gy_locs = list(eastern_kingdom_gy_locs_set)
-kalimdor_locs = list(kalimdor_locs_set)
-kalimdor_gy_locs = list(kalimdor_gy_locs_set)
 
 p = Path('Data/eastern_kingdom_locs.lua')
 p.open('w').write("eastern_kingdom_locs = " + toLua(json.dumps(eastern_kingdom_locs)))

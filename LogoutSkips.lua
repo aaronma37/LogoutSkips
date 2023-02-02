@@ -1,9 +1,66 @@
 local f = CreateFrame('frame', nil, WorldMapPlayerLower)
 f:SetAllPoints()
 
-settings = {
+local defaults = {
+  ['logout_skip_notifier_pos'] = {['x'] = 0.0, ['y'] = 0.0},
+  ['logout_skip_partition_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 0.0,
+    ['b'] = 0.0,
+    ['a'] = 0.6,
+  },
+  ['logout_skip_target_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 0.0,
+    ['b'] = 0.0,
+    ['a'] = 0.6,
+  },
+  ['death_skip_partition_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 1.0,
+    ['b'] = 1.0,
+    ['a'] = 0.8,
+  },
+  ['death_skip_target_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 1.0,
+    ['b'] = 1.0,
+    ['a'] = 0.8,
+  },
+}
+
+logout_skip_settings = {
   ['disabled'] = true,
   ['gy_disabled'] = true,
+  ['show_logout_skip_notifier'] = true,
+  ['logout_skip_notifier_pos'] = {
+    ['x'] = 0.0,
+    ['y'] = 0.0,
+  },
+  ['logout_skip_partition_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 0.0,
+    ['b'] = 0.0,
+    ['a'] = 0.6,
+  },
+  ['logout_skip_target_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 0.0,
+    ['b'] = 0.0,
+    ['a'] = 0.6,
+  },
+  ['death_skip_partition_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 1.0,
+    ['b'] = 1.0,
+    ['a'] = 0.8,
+  },
+  ['death_skip_target_color'] = {
+    ['r'] = 1.0,
+    ['g'] = 1.0,
+    ['b'] = 1.0,
+    ['a'] = 0.8,
+  },
 }
 
 local showing = false
@@ -171,7 +228,19 @@ LineFrame:SetFrameLevel(15000)
 line_frames = {}
 start_points = {}
 end_points = {}
-lines = {}
+eastern_kingdom_lines = {}
+
+local function applyLinesColor(lines, color)
+  for i=1,#lines do
+    lines[i]:SetVertexColor(color['r'], color['g'], color['b'], color['a'])
+  end
+end
+
+local function applyTargetsColor(targets, color)
+  for i=1,#targets do
+    targets[i]:SetVertexColor(color['r'], color['g'], color['b'], color['a'])
+  end
+end
 
 for i=1,#voronoi_lines do
 	local start_point = CreateFrame('frame', nil, LineFrame)
@@ -183,12 +252,12 @@ for i=1,#voronoi_lines do
 	local Line = LineFrame:CreateLine(nil, 'OVERLAY')
 	Line:Hide()
 	Line:SetTexture('interface/buttons/white8x8')
-	Line:SetVertexColor(0.8, .2, .2, 0.6)
 	Line:SetThickness(2)
 	Line:SetStartPoint('CENTER', start_point, 0, 0)
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
-	table.insert(lines, Line)
+	table.insert(eastern_kingdom_lines, Line)
 end
+applyLinesColor(eastern_kingdom_lines, logout_skip_settings['logout_skip_partition_color'])
 
 gy_start_points = {}
 gy_end_points = {}
@@ -210,6 +279,7 @@ for i=1,#gy_voronoi_lines do
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
 	table.insert(gy_lines, Line)
 end
+applyLinesColor(gy_lines, logout_skip_settings['death_skip_partition_color'])
 
 line_frames_kalimdor = {}
 start_points_kalimdor = {}
@@ -226,12 +296,12 @@ for i=1,#voronoi_lines_kalimdor do
 	local Line = LineFrame:CreateLine(nil, 'OVERLAY')
 	Line:Hide()
 	Line:SetTexture('interface/buttons/white8x8')
-	Line:SetVertexColor(0.8, .2, .2, 0.6)
 	Line:SetThickness(2)
 	Line:SetStartPoint('CENTER', start_point, 0, 0)
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
 	table.insert(lines_kalimdor, Line)
 end
+applyLinesColor(lines_kalimdor, logout_skip_settings['logout_skip_partition_color'])
 
 gy_start_points_kalimdor = {}
 gy_end_points_kalimdor = {}
@@ -253,6 +323,7 @@ for i=1,#gy_voronoi_lines_kalimdor do
 	Line:SetEndPoint('CENTER', end_point, 0, 0)
 	table.insert(gy_lines_kalimdor, Line)
 end
+applyLinesColor(gy_lines_kalimdor, logout_skip_settings['death_skip_partition_color'])
 
 points_ = {}
 texs_ = {}
@@ -325,8 +396,8 @@ for _,v in ipairs(kalimdor_gy_locs) do
 end
 
 local function update()
-	if settings['disabled'] and showing then
-	  for _,v in ipairs(lines) do
+	if logout_skip_settings['disabled'] and showing then
+	  for _,v in ipairs(eastern_kingdom_lines) do
 	      v:Hide()
 	  end
 	  for _,v in ipairs(lines_kalimdor) do
@@ -343,7 +414,7 @@ local function update()
 	  return 
 	end
 
-	if settings['gy_disabled'] and gy_showing then
+	if logout_skip_settings['gy_disabled'] and gy_showing then
 	  for _,v in ipairs(gy_lines) do
 	      v:Hide()
 	  end
@@ -361,13 +432,13 @@ local function update()
 	  return 
 	end
 
-	if settings['disabled'] == false then
+	if logout_skip_settings['disabled'] == false then
 		local currentMapID = WorldMapFrame:GetMapID()
 		local cont, _ = C_Map.GetWorldPosFromMapPos(currentMapID, {x = 0, y = 0})
 
 		if cont == 0 and currentMapID ~= 947 then 
 		  for i,v in ipairs(voronoi_lines) do
-			drawLine(v[1], v[2], v[3], v[4], lines[i], start_points[i], end_points[i])
+			drawLine(v[1], v[2], v[3], v[4], eastern_kingdom_lines[i], start_points[i], end_points[i])
 		  end
 		  for _,v in ipairs(lines_kalimdor) do
 		      v:Hide()
@@ -376,11 +447,11 @@ local function update()
 		  for i,v in ipairs(voronoi_lines_kalimdor) do
 			drawLine(v[1], v[2], v[3], v[4], lines_kalimdor[i], start_points_kalimdor[i], end_points_kalimdor[i])
 		  end
-		  for _,v in ipairs(lines) do
+		  for _,v in ipairs(eastern_kingdom_lines) do
 		      v:Hide()
 		  end
 		else
-		  for _,v in ipairs(lines) do
+		  for _,v in ipairs(eastern_kingdom_lines) do
 		      v:Hide()
 		  end
 		  for _,v in ipairs(lines_kalimdor) do
@@ -406,7 +477,7 @@ local function update()
 		showing = true
       end
 
-      if settings['gy_disabled'] == false then
+      if logout_skip_settings['gy_disabled'] == false then
 	      local currentMapID = WorldMapFrame:GetMapID()
 	      local cont, _ = C_Map.GetWorldPosFromMapPos(currentMapID, {x = 0, y = 0})
 
@@ -464,15 +535,15 @@ hooksecurefunc(WorldMapFrame, 'OnMapChanged', function()
 	WorldMapUpdated = true
 end)
 
-if settings['disabled'] then
+if logout_skip_settings['disabled'] then
   LogoutSkips_Toggle:SetText("Show LogoutSkips")
 else
   LogoutSkips_Toggle:SetText("Hide LogoutSkips")
 end
 
 function LogoutSkips_Toggle_Click()
-  settings['disabled'] = not settings['disabled']
-  if settings['disabled'] then
+  logout_skip_settings['disabled'] = not logout_skip_settings['disabled']
+  if logout_skip_settings['disabled'] then
     LogoutSkips_Toggle:SetText("Show LogoutSkips")
   else
     LogoutSkips_Toggle:SetText("Hide LogoutSkips")
@@ -481,11 +552,309 @@ function LogoutSkips_Toggle_Click()
 end
 
 function DeathSkips_Toggle_Click()
-  settings['gy_disabled'] = not settings['gy_disabled']
-  if settings['gy_disabled'] then
+  logout_skip_settings['gy_disabled'] = not logout_skip_settings['gy_disabled']
+  if logout_skip_settings['gy_disabled'] then
     DeathSkips_Toggle:SetText("Show DeathSkips")
   else
     DeathSkips_Toggle:SetText("Hide DeathSkips")
   end
   update()
 end
+
+local logout_skip_notifier = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+logout_skip_notifier:SetPoint("CENTER")
+logout_skip_notifier:SetSize(160, 40)
+logout_skip_notifier:SetBackdrop(BACKDROP_TUTORIAL_16_16)
+
+logout_skip_notifier:SetMovable(true)
+logout_skip_notifier:EnableMouse(true)
+logout_skip_notifier:RegisterForDrag("LeftButton")
+logout_skip_notifier.title_text = logout_skip_notifier:CreateFontString(nil,"ARTWORK")
+logout_skip_notifier.title_text:SetFont("Fonts\\ARIALN.ttf", 9, "OUTLINE")
+logout_skip_notifier.title_text:SetPoint("CENTER",0,10)
+logout_skip_notifier.title_text:SetText("LogoutSkip Target")
+logout_skip_notifier.title_text:SetWidth(160)
+logout_skip_notifier.title_text:SetWordWrap(false)
+
+logout_skip_notifier.text = logout_skip_notifier:CreateFontString(nil,"ARTWORK")
+logout_skip_notifier.text:SetFont("Fonts\\ARIALN.ttf", 10, "OUTLINE")
+logout_skip_notifier.text:SetPoint("CENTER",0,-5)
+logout_skip_notifier.text:SetText("LogoutSkip Target")
+logout_skip_notifier.text:SetWidth(150)
+logout_skip_notifier.text:SetWordWrap(false)
+logout_skip_notifier.timer_handle = nil
+
+function logout_skip_notifier:UpdateTarget()
+  local function distanceSqFunc(x,y, x1, y1)
+    return (x1-x)*(x1-x) + (y1-y)*(y1-y)
+  end
+
+  local map = C_Map.GetBestMapForUnit("player")
+  local position = C_Map.GetPlayerMapPosition(map, "player")
+  local continentID, worldPosition = C_Map.GetWorldPosFromMapPos(map, position)
+  if continentID == 0 then -- EK
+    best_loc = nil
+    loc_dist = nil
+    for _,v in ipairs(eastern_kingdom_locs) do
+      if v ~= nil then
+	if best_loc == nil then
+	  loc_dist = distanceSqFunc(worldPosition['x'], worldPosition['y'], v[2], v[1])
+	  best_loc = v[3]
+	end
+
+	  local _loc_dist = distanceSqFunc(worldPosition['x'], worldPosition['y'], v[2], v[1])
+	if _loc_dist < loc_dist then
+	  best_loc = v[3]
+	  loc_dist = _loc_dist
+	end
+      end
+    end
+    logout_skip_notifier.text:SetText(best_loc)
+  elseif continentID == 1 then -- kalimdor
+    best_loc = nil
+    loc_dist = nil
+    for _,v in ipairs(kalimdor_locs) do
+      if v ~= nil then
+	if best_loc == nil then
+	  loc_dist = distanceSqFunc(worldPosition['x'], worldPosition['y'], v[2], v[1])
+	  best_loc = v[3]
+	end
+
+	  local _loc_dist = distanceSqFunc(worldPosition['x'], worldPosition['y'], v[2], v[1])
+	if _loc_dist < loc_dist then
+	  best_loc = v[3]
+	  loc_dist = _loc_dist
+	end
+      end
+    end
+    logout_skip_notifier.text:SetText(best_loc)
+  end
+end
+
+logout_skip_notifier:SetScript("OnDragStart", function(self, button)
+	self:StartMoving()
+	local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
+	local x,y = self:GetCenter()
+	local px,py = self:GetParent():GetCenter();
+	if logout_skip_settings['logout_skip_notifier_pos'] == nil then
+	  logout_skip_settings['logout_skip_notifier_pos'] = {}
+	end
+	logout_skip_settings['logout_skip_notifier_pos']['x'] = x - px
+	logout_skip_settings['logout_skip_notifier_pos']['y'] = y - py
+end)
+logout_skip_notifier:SetScript("OnDragStop", function(self)
+	self:StopMovingOrSizing()
+
+	local point, relativeTo, relativePoint, xOfs, yOfs = self:GetPoint()
+	local x,y = self:GetCenter()
+	local px,py = self:GetParent():GetCenter();
+	if logout_skip_settings['logout_skip_notifier_pos'] == nil then
+	  logout_skip_settings['logout_skip_notifier_pos'] = {}
+	end
+	logout_skip_settings['logout_skip_notifier_pos']['x'] = x - px
+	logout_skip_settings['logout_skip_notifier_pos']['y'] = y - py
+end)
+
+local function applyLogoutSkipNotifierSettings()
+    if logout_skip_settings["show_logout_skip_notifier"] ~= nil and logout_skip_settings["show_logout_skip_notifier"] == false then
+      logout_skip_notifier:Hide()
+      logout_skip_notifier.text:Hide()
+      if logout_skip_notifier.timer_handle ~= nil then
+	logout_skip_notifier.timer_handle:Cancel()
+	logout_skip_notifier.timer_handle = nil
+      end
+
+    else
+      logout_skip_notifier:Show()
+      logout_skip_notifier.text:Show()
+
+      if logout_skip_notifier.timer_handle ~= nil then
+	logout_skip_notifier.timer_handle:Cancel()
+	logout_skip_notifier.timer_handle = nil
+      end
+
+	logout_skip_notifier.timer_handle = C_Timer.NewTicker(2.0, function()
+	  logout_skip_notifier:UpdateTarget()
+	end)
+    end
+end
+
+local options = {
+	name = "LogoutSkips Options",
+	handler = Hardcore,
+	type = "group",
+	args = {
+		logout_skip_options_header = {
+			type = "group",
+			name = "LogoutSkips",
+			order = 1,
+			inline = true,
+			args = {
+				logoutskip_partition_colorpicker = {
+					type = "color",
+					name = "Partition Color",
+					desc = "Pick LogoutSkip partition color",
+					hasAlpha = true,
+					get = function()
+					  if logout_skip_settings['logout_skip_partition_color'] then
+					  return logout_skip_settings['logout_skip_partition_color']['r'], logout_skip_settings['logout_skip_partition_color']['g'], logout_skip_settings['logout_skip_partition_color']['b'], logout_skip_settings['logout_skip_partition_color']['a']
+
+					  else
+					    return defaults['logout_skip_partition_color']
+					  end
+					end,
+					set = function(info, r,g,b,a)
+
+					  if logout_skip_settings['logout_skip_partition_color'] == nil then
+					    logout_skip_settings['logout_skip_partition_color'] = {}
+					  end
+					  logout_skip_settings['logout_skip_partition_color']['r'] = r 
+					  logout_skip_settings['logout_skip_partition_color']['g'] = g
+					  logout_skip_settings['logout_skip_partition_color']['b'] = b
+					  logout_skip_settings['logout_skip_partition_color']['a'] = a
+					  applyLinesColor(eastern_kingdom_lines, logout_skip_settings['logout_skip_partition_color'])
+					  applyLinesColor(lines_kalimdor, logout_skip_settings['logout_skip_partition_color'])
+					end,
+					order = 1,
+				},
+				logoutskip_target_colorpicker = {
+					type = "color",
+					name = "Target Color",
+					desc = "Pick target color",
+					hasAlpha = true,
+					get = function()
+					  if logout_skip_settings['logout_skip_target_color'] then
+					  return logout_skip_settings['logout_skip_target_color']['r'], logout_skip_settings['logout_skip_target_color']['g'], logout_skip_settings['logout_skip_target_color']['b'], logout_skip_settings['logout_skip_target_color']['a']
+
+					  else
+					    return defaults['logout_skip_target_color']
+					  end
+					end,
+					set = function(info, r,g,b,a)
+
+					  if logout_skip_settings['logout_skip_target_color'] == nil then
+					    logout_skip_settings['logout_skip_target_color'] = {}
+					  end
+					  logout_skip_settings['logout_skip_target_color']['r'] = r 
+					  logout_skip_settings['logout_skip_target_color']['g'] = g
+					  logout_skip_settings['logout_skip_target_color']['b'] = b
+					  logout_skip_settings['logout_skip_target_color']['a'] = a
+					  applyTargetsColor(texs_, logout_skip_settings['logout_skip_target_color'])
+					  applyTargetsColor(texs_kalimdor_, logout_skip_settings['logout_skip_target_color'])
+					end,
+					order = 1,
+				},
+				logoutskip_notifier = {
+					type = "toggle",
+					name = "Notifier",
+					desc = "Turn on and off notifier",
+					get = function()
+					  if logout_skip_settings['show_logout_skip_notifier'] == nil then
+					    return true;
+					  end
+					  return logout_skip_settings['show_logout_skip_notifier']
+					end,
+					set = function(info, value)
+					  if logout_skip_settings['show_logout_skip_notifier'] == nil then
+					    logout_skip_settings['show_logout_skip_notifier'] = false
+					  end
+					  logout_skip_settings['show_logout_skip_notifier'] = not logout_skip_settings['show_logout_skip_notifier'] 
+					  applyLogoutSkipNotifierSettings()
+					end,
+					order = 1,
+				},
+			},
+		},
+		death_skip_options_header = {
+			type = "group",
+			name = "DeathSkips",
+			order = 2,
+			inline = true,
+			args = {
+				death_alerts = {
+					type = "color",
+					name = "Partition Color",
+					desc = "Pick death skip partition color",
+					hasAlpha = true,
+					get = function()
+					  if logout_skip_settings['death_skip_partition_color'] then
+					  return logout_skip_settings['death_skip_partition_color']['r'], logout_skip_settings['death_skip_partition_color']['g'], logout_skip_settings['death_skip_partition_color']['b'], logout_skip_settings['death_skip_partition_color']['a']
+					  else
+					    return 1,1,1,.4
+					  end
+					end,
+					set = function(info, r,g,b,a)
+					    if logout_skip_settings['death_skip_partition_color'] == nil then
+					      logout_skip_settings['death_skip_partition_color'] = {}
+					    end
+					    logout_skip_settings['death_skip_partition_color']['r'] = r 
+					    logout_skip_settings['death_skip_partition_color']['g'] = g
+					    logout_skip_settings['death_skip_partition_color']['b'] = b
+					    logout_skip_settings['death_skip_partition_color']['a'] = a
+					  applyLinesColor(gy_lines, logout_skip_settings['death_skip_partition_color'])
+					  applyLinesColor(gy_lines_kalimdor, logout_skip_settings['death_skip_partition_color'])
+					end,
+					order = 2,
+				},
+			},
+			args = {
+				deathskips_target_colorpicker = {
+					type = "color",
+					name = "Partition Color",
+					desc = "Pick death skip target color",
+					hasAlpha = true,
+					get = function()
+					  if logout_skip_settings['death_skip_target_color'] then
+					  return logout_skip_settings['death_skip_target_color']['r'], logout_skip_settings['death_skip_target_color']['g'], logout_skip_settings['death_skip_target_color']['b'], logout_skip_settings['death_skip_target_color']['a']
+					  else
+					    return 1,1,1,.4
+					  end
+					end,
+					set = function(info, r,g,b,a)
+					    if logout_skip_settings['death_skip_target_color'] == nil then
+					      logout_skip_settings['death_skip_target_color'] = {}
+					    end
+					    logout_skip_settings['death_skip_target_color']['r'] = r 
+					    logout_skip_settings['death_skip_target_color']['g'] = g
+					    logout_skip_settings['death_skip_target_color']['b'] = b
+					    logout_skip_settings['death_skip_target_color']['a'] = a
+					  applyTargetsColor(eastern_kingdom_gy_texs_, logout_skip_settings['death_skip_target_color'])
+					  applyTargetsColor(kalimdor_gy_texs_, logout_skip_settings['death_skip_target_color'])
+					end,
+					order = 2,
+				},
+			},
+		},
+	},
+}
+
+
+
+LibStub("AceConfig-3.0"):RegisterOptionsTable("LogoutSkips", options)
+optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("LogoutSkips", "LogoutSkips")
+
+local logout_skip_event_handler = CreateFrame('frame', nil)
+
+logout_skip_event_handler:SetScript("OnEvent", function(self, event, ...)
+  if event == "PLAYER_ENTERING_WORLD" then
+    applyLinesColor(eastern_kingdom_lines, logout_skip_settings['logout_skip_partition_color'] or defaults['logout_skip_partition_color'])
+    applyLinesColor(lines_kalimdor, logout_skip_settings['logout_skip_partition_color'] or defaults['logout_skip_partition_color'])
+    applyLinesColor(gy_lines, logout_skip_settings['death_skip_partition_color'] or defaults['death_skip_partition_color'])
+    applyLinesColor(gy_lines_kalimdor, logout_skip_settings['death_skip_partition_color'] or defaults['death_skip_partition_color'])
+
+    applyTargetsColor(kalimdor_gy_texs_, logout_skip_settings['death_skip_target_color'] or defaults['logout_skip_target_color'])
+    applyTargetsColor(eastern_kingdom_gy_texs_, logout_skip_settings['death_skip_target_color'] or defaults['logout_skip_target_color'])
+    applyTargetsColor(texs_, logout_skip_settings['logout_skip_target_color'] or defaults['death_skip_target_color'])
+    applyTargetsColor(texs_kalimdor_, logout_skip_settings['logout_skip_target_color'] or defaults['death_skip_target_color'])
+
+    applyLogoutSkipNotifierSettings()
+    if logout_skip_settings["logout_skip_notifier_pos"] then
+      logout_skip_notifier:SetPoint("CENTER", UIParent, "CENTER", logout_skip_settings["logout_skip_notifier_pos"]['x'], logout_skip_settings["logout_skip_notifier_pos"]['y'])
+    end
+
+    logout_skip_notifier:UpdateTarget()
+
+  end
+end)
+
+logout_skip_event_handler:RegisterEvent("PLAYER_ENTERING_WORLD")
